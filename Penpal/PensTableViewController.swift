@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PensTableViewController: UITableViewController {
     
@@ -15,7 +16,7 @@ class PensTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         loadSamplePens()
+        // loadSamplePens()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,6 +24,7 @@ class PensTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,10 +41,21 @@ class PensTableViewController: UITableViewController {
         return Pens.count
     }
     
+    // loading samples
+    private func loadSamplePens() {
+        let photo1 = UIImage(named: "defaultphoto_2x")
+        let photo2 = UIImage(named: "lattice")
+        let photo3 = UIImage(named: "defaultphoto_2x")
+        let pen1 = Pen(PenPhoto: photo1, Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
+        let pen2 = Pen(PenPhoto: photo2,Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
+        let pen3 = Pen(PenPhoto: photo3,Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
+        
+        Pens += [pen1, pen2, pen3]
+    }
     
     
 
-    
+    //config for table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
 
@@ -59,12 +72,24 @@ class PensTableViewController: UITableViewController {
         cell.DateFilled.text = Pen.DateFilled
         cell.PenPhoto.image = Pen.PenPhoto
         cell.InkFilled.text = Pen.InkFilled
-        
+        print (Pen.FullName)
         
 
         return cell
     }
     
+    //unwinding for saving
+    
+    @IBAction func unwindToPenpal (sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? AddPenViewController, let pen = sourceViewController.pen {
+            
+            // Add a new pen.
+            let newIndexPath = IndexPath(row: Pens.count, section: 0)
+            
+            Pens.append(pen)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -101,26 +126,43 @@ class PensTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
-    private func loadSamplePens() {
-        let photo1 = UIImage(named: "defaultphoto_2x")
-        let photo2 = UIImage(named: "lattice")
-        let photo3 = UIImage(named: "defaultphoto_2x")
-        let pen1 = Pen(PenPhoto: photo1, Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
-         let pen2 = Pen(PenPhoto: photo2,Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
-         let pen3 = Pen(PenPhoto: photo3,Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
+        super.prepare(for: segue, sender: sender)
+        switch (segue.identifier ?? ""){
+        case "AddPen":
+            os_log("adding a new pen",  log: OSLog.default, type: .debug)
+        case "ShowDetails":
+            guard let addPenController = segue.destination as? AddPenViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedPenCell = sender as? PenTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedPenCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedPen = Pens[indexPath.row]
+           
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+            
         
-        Pens += [pen1, pen2, pen3]
+        }
+        
+        
     }
+    
+    
+  
     
 }

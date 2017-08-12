@@ -90,7 +90,7 @@ class Pen {
     }
     
     var FullName: String {
-    let FullName = "\(_Manufacturer) \(_Name)"
+    let FullName = _Manufacturer+" "+_Name
     return FullName
     }
 }
