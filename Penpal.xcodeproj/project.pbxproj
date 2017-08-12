@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		54B695D31F37095900C6DBA5 /* AddPenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B695D21F37095900C6DBA5 /* AddPenController.swift */; };
-		54B695D51F37098900C6DBA5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B695D41F37098900C6DBA5 /* DetailViewController.swift */; };
 		54B695DC1F38C71D00C6DBA5 /* Penpal.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 54B695D81F38C71D00C6DBA5 /* Penpal.xcworkspace */; };
 		54B695DD1F38C71D00C6DBA5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 54B695D91F38C71D00C6DBA5 /* Podfile */; };
 		54B695DE1F38C71D00C6DBA5 /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 54B695DA1F38C71D00C6DBA5 /* Podfile.lock */; };
@@ -25,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		54B695D21F37095900C6DBA5 /* AddPenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPenController.swift; sourceTree = "<group>"; };
-		54B695D41F37098900C6DBA5 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Assets.xcassets/DetailViewController.swift; sourceTree = "<group>"; };
 		54B695D81F38C71D00C6DBA5 /* Penpal.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Penpal.xcworkspace; sourceTree = "<group>"; };
 		54B695D91F38C71D00C6DBA5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		54B695DA1F38C71D00C6DBA5 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			children = (
 				54C65F571F3983D400BF7C2B /* PensTableViewController.swift */,
 				54B695D21F37095900C6DBA5 /* AddPenController.swift */,
-				54B695D41F37098900C6DBA5 /* DetailViewController.swift */,
 				54B695E21F39035300C6DBA5 /* PenTableViewCell.swift */,
 			);
 			name = View;
@@ -272,7 +269,6 @@
 			files = (
 				54F923E61F30E23E0017704B /* Pen.swift in Sources */,
 				54B695E31F39035300C6DBA5 /* PenTableViewCell.swift in Sources */,
-				54B695D51F37098900C6DBA5 /* DetailViewController.swift in Sources */,
 				54F923D11F30E1470017704B /* AppDelegate.swift in Sources */,
 				54C65F581F3983D400BF7C2B /* PensTableViewController.swift in Sources */,
 				54B695D31F37095900C6DBA5 /* AddPenController.swift in Sources */,

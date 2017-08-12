@@ -160,13 +160,13 @@ class AddPenViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         if (textField == DatePurchasedTF) {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil, action:#selector(doneDatePurchasedPicker))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelDatePurchasedPicker))
-            toolbar.setItems([doneButton,space,cancelButton], animated: false)
+            toolbar.setItems([cancelButton,space,doneButton], animated: false)
         }
         
         else if (textField == DateFilledTF) {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil, action:#selector(doneDateFilledPicker))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelDateFilledPicker))
-        toolbar.setItems([doneButton,space,cancelButton], animated: false)
+        toolbar.setItems([cancelButton,space,doneButton], animated: false)
         }
         
         
