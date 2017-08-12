@@ -15,9 +15,9 @@
 		54B695DF1F38C71D00C6DBA5 /* Pods in Resources */ = {isa = PBXBuildFile; fileRef = 54B695DB1F38C71D00C6DBA5 /* Pods */; };
 		54B695E31F39035300C6DBA5 /* PenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B695E21F39035300C6DBA5 /* PenTableViewCell.swift */; };
 		54C65F581F3983D400BF7C2B /* PensTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C65F571F3983D400BF7C2B /* PensTableViewController.swift */; };
+		54CC0D461F3FA33B000650DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CC0D451F3FA33B000650DF /* Assets.xcassets */; };
 		54F923D11F30E1470017704B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F923D01F30E1470017704B /* AppDelegate.swift */; };
 		54F923D61F30E1470017704B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F923D41F30E1470017704B /* Main.storyboard */; };
-		54F923D81F30E1470017704B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54F923D71F30E1470017704B /* Assets.xcassets */; };
 		54F923DB1F30E1470017704B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F923D91F30E1470017704B /* LaunchScreen.storyboard */; };
 		54F923E61F30E23E0017704B /* Pen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F923E51F30E23E0017704B /* Pen.swift */; };
 		930BBF7FD5D0DE6C0D255F81 /* Pods_Penpal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E244D4DEE9EEB708DCF374 /* Pods_Penpal.framework */; };
@@ -32,10 +32,10 @@
 		54B695DB1F38C71D00C6DBA5 /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
 		54B695E21F39035300C6DBA5 /* PenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenTableViewCell.swift; sourceTree = "<group>"; };
 		54C65F571F3983D400BF7C2B /* PensTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PensTableViewController.swift; sourceTree = "<group>"; };
+		54CC0D451F3FA33B000650DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54F923CD1F30E1470017704B /* Penpal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Penpal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F923D01F30E1470017704B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54F923D51F30E1470017704B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		54F923D71F30E1470017704B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54F923DA1F30E1470017704B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54F923DC1F30E1470017704B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54F923E51F30E23E0017704B /* Pen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pen.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				54F923E21F30E1E10017704B /* Model */,
 				54F923D01F30E1470017704B /* AppDelegate.swift */,
 				54F923D41F30E1470017704B /* Main.storyboard */,
-				54F923D71F30E1470017704B /* Assets.xcassets */,
+				54CC0D451F3FA33B000650DF /* Assets.xcassets */,
 				54F923D91F30E1470017704B /* LaunchScreen.storyboard */,
 				54F923DC1F30E1470017704B /* Info.plist */,
 			);
@@ -203,7 +203,7 @@
 				54B695DF1F38C71D00C6DBA5 /* Pods in Resources */,
 				54B695DD1F38C71D00C6DBA5 /* Podfile in Resources */,
 				54F923DB1F30E1470017704B /* LaunchScreen.storyboard in Resources */,
-				54F923D81F30E1470017704B /* Assets.xcassets in Resources */,
+				54CC0D461F3FA33B000650DF /* Assets.xcassets in Resources */,
 				54B695DC1F38C71D00C6DBA5 /* Penpal.xcworkspace in Resources */,
 				54F923D61F30E1470017704B /* Main.storyboard in Resources */,
 			);

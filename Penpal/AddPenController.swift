@@ -57,14 +57,27 @@ class AddPenViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         
         updateSaveButtonState()
         
-        
-
-   
-        
     }
     
+    
     //back button
+    
+    
+    
+    
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        let isPresentingInAddPenMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddPenMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+        
          dismiss(animated: true, completion: nil)
     }
 
@@ -134,27 +147,46 @@ class AddPenViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         
         //format for date
         DatePicker.datePickerMode = .date
-        
-       
-        
         // tool bar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         // bar button item
         
         textField.inputAccessoryView = toolbar
         textField.inputView = DatePicker
-            
-        if textField == DatePurchasedTF {
+        
+        
+        if (textField == DatePurchasedTF) {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil, action:#selector(doneDatePurchasedPicker))
-        toolbar.setItems([doneButton], animated: false)
-        } else if textField == DateFilledTF {
-            let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil, action:#selector(doneDateFilledPicker))
-            toolbar.setItems([doneButton], animated: false)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelDatePurchasedPicker))
+            toolbar.setItems([doneButton,space,cancelButton], animated: false)
         }
+        
+        else if (textField == DateFilledTF) {
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: nil, action:#selector(doneDateFilledPicker))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelDateFilledPicker))
+        toolbar.setItems([doneButton,space,cancelButton], animated: false)
+        }
+        
+        
+        
         
     }
     
+    @IBAction func cancelDatePurchasedPicker(){
+       DatePurchasedTF.text = ""
+        DatePurchasedTF.resignFirstResponder()
+    }
+    @IBAction func cancelDateFilledPicker(){
+        DateFilledTF.text = ""
+        DateFilledTF.resignFirstResponder()
+    }
+    
+    
+    
+    
+ 
     @IBAction func doneDatePurchasedPicker (){
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short

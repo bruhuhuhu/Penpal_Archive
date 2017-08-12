@@ -15,9 +15,16 @@ class PensTableViewController: UITableViewController {
     var Pens = [Pen]()
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // loadSamplePens()
-
+        
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
+        if let savedPens = loadPens() {
+            Pens += savedPens
+        }else{
+        loadSamplePens()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,11 +51,11 @@ class PensTableViewController: UITableViewController {
     // loading samples
     private func loadSamplePens() {
         let photo1 = UIImage(named: "defaultphoto_2x")
-        let photo2 = UIImage(named: "lattice")
+        let photo2 = UIImage(named: "defaultphoto_2x")
         let photo3 = UIImage(named: "defaultphoto_2x")
-        let pen1 = Pen(PenPhoto: photo1, Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
-        let pen2 = Pen(PenPhoto: photo2,Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
-        let pen3 = Pen(PenPhoto: photo3,Manufacturer: "omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
+        let pen1 = Pen(PenPhoto: photo1, Manufacturer: "Omas", Name: "Paragon", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Asa Gao", DateFilled: "2018/8/8")
+        let pen2 = Pen(PenPhoto: photo2,Manufacturer: "Pelikan", Name: "M1000", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Royal Blue", DateFilled: "2018/8/8")
+        let pen3 = Pen(PenPhoto: photo3,Manufacturer: "Sailor", Name: "1911L", NibSize: "B", DatePurchaseed: "2018/8/8", Price: "550", InkFilled: "Brilliant Brown", DateFilled: "2018/8/8")
         
         Pens += [pen1, pen2, pen3]
     }
@@ -63,7 +70,7 @@ class PensTableViewController: UITableViewController {
         let cellIdentifier = "PenTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PenTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            fatalError("The dequeued cell is not an instance of PenTableViewCell.")
         }
         // Fetches the appropriate meal for the data source layout.
         let Pen = Pens[indexPath.row]
@@ -83,11 +90,17 @@ class PensTableViewController: UITableViewController {
     @IBAction func unwindToPenpal (sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? AddPenViewController, let pen = sourceViewController.pen {
             
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            //update existing
+                Pens[selectedIndexPath.row] = pen
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else{
             // Add a new pen.
             let newIndexPath = IndexPath(row: Pens.count, section: 0)
-            
             Pens.append(pen)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            savePens()
         }
     }
 
@@ -99,17 +112,19 @@ class PensTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            Pens.remove(at: indexPath.row)
+            savePens()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -152,17 +167,24 @@ class PensTableViewController: UITableViewController {
             
             let selectedPen = Pens[indexPath.row]
              addPenController.pen = selectedPen
-           
-            
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
-            
-        
         }
-        
-        
     }
     
+    //MARK: Private Methods
+    private func savePens() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Pens, toFile: Pen.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Pens successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save pens...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadPens() -> [Pen]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Pen.ArchiveURL.path) as? [Pen]
+    }
     
   
     
