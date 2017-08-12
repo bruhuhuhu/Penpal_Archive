@@ -151,6 +151,7 @@ class PensTableViewController: UITableViewController {
             }
             
             let selectedPen = Pens[indexPath.row]
+             addPenController.pen = selectedPen
            
             
         default:

@@ -43,17 +43,18 @@ class AddPenViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         InkFilledTF.delegate = self
         DateFilledTF.delegate = self
         
-        if let pen = Pen {
-            ManufacturerTF.text =
-            NameTF.text =
-            NibSizeTF.text =
-            PriceTF.text =
-            DatePurchasedTF.text =
-            InkFilledTF.text =
-            navigationItem.text =
-        
-        
+        if let pen = pen {
+            ManufacturerTF.text = pen.Manufacturer 
+            NameTF.text = pen.Name
+            NibSizeTF.text = pen.NibSize
+            PriceTF.text = pen.Price
+            DatePurchasedTF.text = pen.DatePurchaseed
+            InkFilledTF.text = pen.InkFilled
+            DateFilledTF.text = pen.DateFilled
+            PenPhoto.image = pen.PenPhoto
+            navigationItem.title = pen.FullName
         }
+        
         updateSaveButtonState()
         
         
