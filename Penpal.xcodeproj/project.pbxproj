@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5412B5E9200C47190007897D /* Pods-Penpal.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F399D768FAD468CFE15D56C2 /* Pods-Penpal.debug.xcconfig */; };
+		5412B5EA200C471C0007897D /* Pods-Penpal.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7C68265DC10CCF8D65AA4018 /* Pods-Penpal.release.xcconfig */; };
 		54B695D31F37095900C6DBA5 /* AddPenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B695D21F37095900C6DBA5 /* AddPenController.swift */; };
 		54B695DC1F38C71D00C6DBA5 /* Penpal.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = 54B695D81F38C71D00C6DBA5 /* Penpal.xcworkspace */; };
 		54B695DD1F38C71D00C6DBA5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 54B695D91F38C71D00C6DBA5 /* Podfile */; };
@@ -19,13 +21,31 @@
 		54F923D61F30E1470017704B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F923D41F30E1470017704B /* Main.storyboard */; };
 		54F923DB1F30E1470017704B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54F923D91F30E1470017704B /* LaunchScreen.storyboard */; };
 		54F923E61F30E23E0017704B /* Pen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F923E51F30E23E0017704B /* Pen.swift */; };
-		930BBF7FD5D0DE6C0D255F81 /* Pods_Penpal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E244D4DEE9EEB708DCF374 /* Pods_Penpal.framework */; };
+		930BBF7FD5D0DE6C0D255F81 /* Pods_Penpal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E244D4DEE9EEB708DCF374 /* Pods_Penpal.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5412B5EF200C4B080007897D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5412B5EB200C4B080007897D /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 33ADEE8D7417C9E0557BF70C70CE5682;
+			remoteInfo = "Pods-Penpal";
+		};
+		5412B5F5200C4CA80007897D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5412B5EB200C4B080007897D /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9957D83B6775F3C7F732B59A2C051C03;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5412B5EB200C4B080007897D /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		54B695D21F37095900C6DBA5 /* AddPenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPenController.swift; sourceTree = "<group>"; };
 		54B695D81F38C71D00C6DBA5 /* Penpal.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Penpal.xcworkspace; sourceTree = "<group>"; };
-		54B695D91F38C71D00C6DBA5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		54B695D91F38C71D00C6DBA5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		54B695DA1F38C71D00C6DBA5 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		54B695DB1F38C71D00C6DBA5 /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
 		54B695E21F39035300C6DBA5 /* PenTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenTableViewCell.swift; sourceTree = "<group>"; };
@@ -57,6 +77,7 @@
 		00BDC0E3291E4C2B958F76E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5412B5EB200C4B080007897D /* Pods.xcodeproj */,
 				D3E244D4DEE9EEB708DCF374 /* Pods_Penpal.framework */,
 			);
 			name = Frameworks;
@@ -69,6 +90,15 @@
 				7C68265DC10CCF8D65AA4018 /* Pods-Penpal.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5412B5EC200C4B080007897D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5412B5F6200C4CA80007897D /* IQKeyboardManagerSwift.framework */,
+				5412B5F0200C4B080007897D /* Pods_Penpal.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		54F923C41F30E1470017704B = {
@@ -163,12 +193,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = hu;
 				TargetAttributes = {
 					54F923CC1F30E1470017704B = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = D6JY74NZD4;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -184,6 +215,12 @@
 			mainGroup = 54F923C41F30E1470017704B;
 			productRefGroup = 54F923CE1F30E1470017704B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5412B5EC200C4B080007897D /* Products */;
+					ProjectRef = 5412B5EB200C4B080007897D /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				54F923CC1F30E1470017704B /* Penpal */,
@@ -191,18 +228,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		5412B5F0200C4B080007897D /* Pods_Penpal.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Penpal.framework;
+			remoteRef = 5412B5EF200C4B080007897D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5412B5F6200C4CA80007897D /* IQKeyboardManagerSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IQKeyboardManagerSwift.framework;
+			remoteRef = 5412B5F5200C4CA80007897D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		54F923CB1F30E1470017704B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				54B695DE1F38C71D00C6DBA5 /* Podfile.lock in Resources */,
+				5412B5E9200C47190007897D /* Pods-Penpal.debug.xcconfig in Resources */,
 				54B695DF1F38C71D00C6DBA5 /* Pods in Resources */,
 				54B695DD1F38C71D00C6DBA5 /* Podfile in Resources */,
 				54F923DB1F30E1470017704B /* LaunchScreen.storyboard in Resources */,
 				54CC0D461F3FA33B000650DF /* Assets.xcassets in Resources */,
 				54B695DC1F38C71D00C6DBA5 /* Penpal.xcworkspace in Resources */,
 				54F923D61F30E1470017704B /* Main.storyboard in Resources */,
+				5412B5EA200C471C0007897D /* Pods-Penpal.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

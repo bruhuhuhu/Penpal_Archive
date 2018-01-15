@@ -31,8 +31,6 @@ class AddPenViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
     
     var pen: Pen?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ManufacturerTF.delegate = self
